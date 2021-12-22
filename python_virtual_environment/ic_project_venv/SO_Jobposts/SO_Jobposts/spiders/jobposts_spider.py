@@ -156,26 +156,26 @@ class JobpostsSpider(scrapy.Spider):
         company = Company()
         company.id = job_company
          
-        # new_jobpost = jp.Jobpost()
-        # new_jobpost.id(job_id)
-        # new_jobpost.company = company
-        # new_jobpost.title = job_title
-        # new_jobpost.description = job_description
-        # new_jobpost.salary_range = salary_range_and_equity
-        # new_jobpost.experience_level = experience_level
-        # new_jobpost.job_type = job_type
-        # new_jobpost.onsite_and_limited_remote = onsite_and_limited_remote
-        # new_jobpost.visa_sponsor = visa_sponsor
-        # new_jobpost.paid_relocation = paid_relocation
-        # new_jobpost.remote = remote
-        # new_jobpost.post_time = post_time
-        # new_jobpost.likes_reactions = likes_reactions
-        # new_jobpost.dislikes_reactions = dislikes_reactions
-        # new_jobpost.love_reactions = love_reactions
-        # new_jobpost.job_remote_details = new_remote_details
-        # new_jobpost.roles = role
-        # new_jobpost.technologies = technologies
-        # new_jobpost.industries = industries
+        new_jobpost = jp.Jobpost()
+        new_jobpost.id(job_id)
+        new_jobpost.company = company
+        new_jobpost.title = job_title
+        new_jobpost.description = job_description
+        new_jobpost.salary_range = salary_range_and_equity
+        new_jobpost.experience_level = experience_level
+        new_jobpost.job_type = job_type
+        new_jobpost.onsite_and_limited_remote = onsite_and_limited_remote
+        new_jobpost.visa_sponsor = visa_sponsor
+        new_jobpost.paid_relocation = paid_relocation
+        new_jobpost.remote = remote
+        new_jobpost.post_time = post_time
+        new_jobpost.likes_reactions = likes_reactions
+        new_jobpost.dislikes_reactions = dislikes_reactions
+        new_jobpost.love_reactions = love_reactions
+        new_jobpost.job_remote_details = new_remote_details
+        new_jobpost.roles = role
+        new_jobpost.technologies = technologies
+        new_jobpost.industries = industries
  
 
 

@@ -1,6 +1,7 @@
 import scrapy
 import time
-
+import models
+from models import Technology
 
 # As tags têm uma descrição que está cortada neste link, para obter a descrição completa teria que
 # entrar no link da tag onde tem várias outras informações sobre a tag 
@@ -16,6 +17,8 @@ class Technologies_Spider(scrapy.Spider):
         time.sleep(1)
         for i in range(0, len(tags_list)):
             time.sleep(1)
+            #instanciando objeto:
+            tag = Technology(name=tags_list[i])
             yield{'tag_name': tags_list[i]}
 
 

@@ -2,6 +2,9 @@ import scrapy
 import json
 import time
 from ..items import CompaniesItem
+import models
+from models import Company
+from models import JoelTest
 
 class CompaniesSpider(scrapy.Spider):
     name = "companies"
@@ -17,7 +20,6 @@ class CompaniesSpider(scrapy.Spider):
                 start_urls.append(host + company_link)
     except FileNotFoundError:
         pass
-
 
     def parse(self, response):
         time.sleep(2)
@@ -42,6 +44,9 @@ class CompaniesSpider(scrapy.Spider):
         jobs_openings = response.xpath('/html//div[@id="jobs-items"]/div[@class="listResults js-jobs"]/span/div/@data-jobid').extract() or None
         about_company = response.xpath('/html//div[@id="tech-stack-items"]/p/text()').extract() or None
         benefits = response.xpath('/html//div[@class="mt32"]/h2[contains(text(), "Company Benefits")]/following-sibling::ol//div/text()').extract() or None
+
+        # Instanciando objeto de Company
+        company = Company(name=name, size = size, status = status, industry = industry, founded = founded, locations = locations, company_technologies = company_technologies, about_company = about_company, people = people, jobs_openings = jobs_openings, benefits = benefits)
 
         yield{'name': name,
             'size': size,

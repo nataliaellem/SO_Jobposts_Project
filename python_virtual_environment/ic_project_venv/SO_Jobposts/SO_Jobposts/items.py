@@ -44,7 +44,6 @@ class JobpostsItem(scrapy.Item):
     testers = scrapy.Field()
     code_screening = scrapy.Field()
     hallway_usability_testing = scrapy.Field()
-    benefits = scrapy.Field()
 
 
 
@@ -57,6 +56,7 @@ class CompaniesItem(scrapy.Item):
     locations = scrapy.Field()
     company_technologies = scrapy.Field()
     about_company = scrapy.Field()
+    benefits = scrapy.Field()
     people = scrapy.Field()
     jobs_openings = scrapy.Field()
 
