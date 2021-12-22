@@ -121,32 +121,80 @@ class JobpostsSpider(scrapy.Spider):
             joel_test_unchecked_list = response.xpath('/html//section[@class="-joel-test mb32"]/div/div/div/span[@class="fc-red-500"]/following-sibling::text()').extract() or []
             
             for item in joel_test_checked_list:
-                source_control = True if ('Source control' in item) else None
-                onestep_build = True if ('One-step build' in item) else None
-                daily_builds = True if ('Daily builds' in item) else None
-                bug_database = True if ('Bug database' in item) else None
-                bugs_fixed_before_writing_new_code = True if ('Bugs fixed before writing new code' in item ) else None
-                uptodate_schedule = True if ('Up-to-date schedule' in item) else None
-                specs = True if ('Specs' in item ) else None
-                quiet_working_conditions = True if ('Quiet working conditions' in item) else None
-                best_tools_that_money_can_buy = True if ('Best tools that money can buy' in item) else None
-                testers = True if ('Testers' in item) else None
-                code_screening = True if ('Code screening' in item) else None
-                hallway_usability_testing = True if ('Hallway usability testing' in item) else None
+                if ('Source control' in item): 
+                    source_control = True 
+                    break
+                elif ('One-step build' in item):
+                    onestep_build = True 
+                    break;
+                elif ('Daily builds' in item):
+                    daily_builds = True
+                    break;
+                elif ('Bug database' in item):
+                    bug_database = True
+                    break;
+                elif ('Bugs fixed before writing new code' in item ):
+                    bugs_fixed_before_writing_new_code = True
+                    break;
+                elif ('Up-to-date schedule' in item):
+                    uptodate_schedule = True
+                    break;
+                elif ('Specs' in item ):
+                    specs = True
+                    break;
+                elif ('Quiet working conditions' in item):
+                    quiet_working_conditions = True
+                    break;
+                elif ('Best tools that money can buy' in item):
+                    best_tools_that_money_can_buy = True
+                    break;
+                elif ('Testers' in item):
+                    testers = True
+                    break;
+                elif ('Code screening' in item):
+                    code_screening = True
+                    break;
+                elif ('Hallway usability testing' in item):
+                    hallway_usability_testing = True
+                    break;
 
             for item in joel_test_unchecked_list:
-                source_control = False if ('Source control' in item) else None
-                onestep_build = False if ('One-step build' in item) else None
-                daily_builds = False if ('Daily builds' in item) else None
-                bug_database = False if ('Bug database' in item) else None
-                bugs_fixed_before_writing_new_code = False if ('Bugs fixed before writing new code' in item ) else None
-                uptodate_schedule = False if ('Up-to-date schedule' in item) else None
-                specs = False if ('Specs' in item ) else None
-                quiet_working_conditions = False if ('Quiet working conditions' in item) else None
-                best_tools_that_money_can_buy = False if ('Best tools that money can buy\r\n                                    ' in item) else None
-                testers = False if ('Testers' in item) else None
-                code_screening = False if ('Code screening' in item) else None
-                hallway_usability_testing = False if ('Hallway usability testing' in item) else None
+                if ('Source control' in item):
+                    source_control = False
+                    break
+                if ('One-step build' in item):
+                    onestep_build = False
+                    break
+                if ('Daily builds' in item):
+                    daily_builds = False
+                    break
+                if ('Bug database' in item):
+                    bug_database = False
+                    break
+                if ('Bugs fixed before writing new code' in item ):
+                    bugs_fixed_before_writing_new_code = False
+                    break
+                if ('Up-to-date schedule' in item):
+                    uptodate_schedule = False
+                    break
+                if ('Specs' in item ):
+                    specs = False
+                    break
+                if ('Quiet working conditions' in item):
+                    quiet_working_conditions = False
+                    break
+                if ('Best tools that money can buy' in item):
+                    best_tools_that_money_can_buy = False
+                    break
+                if ('Testers' in item):
+                    testers = False
+                    break
+                if ('Code screening' in item):
+                    code_screening = False
+                    break
+                if ('Hallway usability testing' in item):
+                    hallway_usability_testing = False
+                    break
         
         
         # Instanciando objetos com as classes de 'models':
@@ -176,8 +224,6 @@ class JobpostsSpider(scrapy.Spider):
         new_jobpost.roles = role
         new_jobpost.technologies = technologies
         new_jobpost.industries = industries
- 
-
 
 
         # Instancioando os objetos com as classes do tipo 'Item'
